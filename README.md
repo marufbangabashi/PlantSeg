@@ -134,6 +134,8 @@ limitation of the model-selection protocol.
 | `10_NotebookI_SegFormerB2_VersionPin_Rerun.ipynb` | Reloads SegFormer-B2 with `transformers==4.46.3` pinned. | Strict load, 0 missing/unexpected keys, fresh fg-IoU **0.5792** vs the preserved record's 0.5792 (diff 0.0000). Confirms Notebook H's large gap was a library-version artefact. **Closes the Stage 2 checkpoint question.** |
 | `11_NotebookJ_NullModelBaselines.ipynb` | Centre-prior and random-attribution baselines plus a model-parameter randomisation check, for the classifier and all six segmenters, on the same 300-image subset used in the paper. | The classifier's Grad-CAM clears a random-attribution baseline decisively (IoU 0.263 vs 0.136, p = 3.4 × 10⁻³⁴) and beats a randomised-weights version of itself (0.263 vs 0.145, p = 3.7 × 10⁻²⁶) — but is **not** significantly better than a centre-of-frame prior (p = 0.24). The five convolutional segmenters clear both baselines; SegFormer-B2 scores significantly *below* both. |
 
+**Reproduce every result:** `PlantSeg_R3_NotebookK_VerifiedArtifacts.ipynb` checks the SHA-256 checksum of all 43 released checkpoints ([Kaggle dataset](https://www.kaggle.com/datasets/alenmaruf/checkpoint-release)) against `MANIFEST.csv`, then regenerates every number reported in the paper; its executed outputs are in `notebookK_results/`.
+
 ---
 
 *Last updated: 2026-10-11.*
